@@ -1,8 +1,4 @@
-import 'dart:ui';
-
-import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart' hide WidgetBuilder;
 
 import 'game.dart';
@@ -22,10 +18,7 @@ class GameRenderBox extends RenderBox with WidgetsBindingObserver {
   bool get sizedByParent => true;
 
   @override
-  void performResize() {
-    super.performResize();
-    game.resize(constraints.biggest);
-  }
+  Size computeDryLayout(BoxConstraints constraints) => constraints.biggest;
 
   @override
   void attach(PipelineOwner owner) {
